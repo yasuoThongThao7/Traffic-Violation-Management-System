@@ -1,67 +1,67 @@
 # Traffic Violation Management System
 
-Một hệ thống quản lý vi phạm giao thông viết bằng C# (.NET / ASP.NET Core). Ứng dụng cho phép ghi nhận, theo dõi và xử lý vi phạm giao thông, lưu trữ bằng chứng (hình ảnh / video) và sinh báo cáo thống kê.
+A Traffic Violation Management System written in C# (.NET / ASP.NET Core). The application allows recording, tracking, and managing traffic violations, storing evidence (images/videos), and generating statistical reports.
 
 ---
 
-## Mục lục
+## Table of Contents
 
-- [Tính năng](#tính-năng)  
-- [Công nghệ sử dụng](#công-nghệ-sử-dụng)  
-- [Yêu cầu trước](#yêu-cầu-trước)  
-- [Cài đặt](#cài-đặt)  
-- [Cấu hình](#cấu-hình)  
-- [Cơ sở dữ liệu & Migration](#cơ-sở-dữ-liệu--migration)  
-- [Chạy ứng dụng](#chạy-ứng-dụng)  
-- [Kiểm thử](#kiểm-thử)  
-- [Đóng góp](#đóng-góp)  
-- [Giấy phép](#giấy-phép)  
-- [Liên hệ](#liên-hệ)
+- [Features](#features)  
+- [Tech Stack](#tech-stack)  
+- [Prerequisites](#prerequisites)  
+- [Installation](#installation)  
+- [Configuration](#configuration)  
+- [Database & Migrations](#database--migrations)  
+- [Running the Application](#running-the-application)  
+- [Testing](#testing)  
+- [Contributing](#contributing)  
+- [License](#license)  
+- [Contact](#contact)
 
 ---
 
-## Tính năng
+## Features
 
-- Ghi nhận hồ sơ vi phạm (thời gian, địa điểm, loại vi phạm).  
-- Quản lý thông tin phương tiện và người vi phạm.  
-- Tải lên và lưu trữ bằng chứng (hình ảnh, video).  
-- Tạo quyết định xử phạt và theo dõi trạng thái (mới / đang xử lý / đã xử lý).  
-- Tìm kiếm, lọc, phân trang danh sách vi phạm.  
-- Báo cáo thống kê: theo khu vực, theo loại vi phạm, theo khoảng thời gian.  
-- Phân quyền cơ bản: Admin, Officer, Viewer.  
-- API RESTful cho các thao tác chính (nếu dự án là Web API).
+- Record violation reports (timestamp, location, violation type).  
+- Manage vehicle and violator information.  
+- Upload and store evidence (images, videos).  
+- Create penalty decisions and track processing status (new / in-progress / resolved).  
+- Search, filter, and paginate violation lists.  
+- Statistical reports by area, violation type, and time range.  
+- Basic role-based access control: Admin, Officer, Viewer.  
+- RESTful API endpoints for main operations (if the project is implemented as a Web API).
 
-## Công nghệ sử dụng
+## Tech Stack
 
-- Ngôn ngữ: C#  
+- Language: C#  
 - Framework: ASP.NET Core / .NET 6+  
-- ORM: Entity Framework Core (nếu có)  
-- Cơ sở dữ liệu: SQL Server / PostgreSQL / SQLite (tùy cấu hình)  
-- Thư viện phổ biến: AutoMapper, Serilog, FluentValidation, JWT authentication (nếu áp dụng)
+- ORM: Entity Framework Core (if used)  
+- Database: SQL Server / PostgreSQL / SQLite (configurable)  
+- Common libraries (if applicable): AutoMapper, Serilog, FluentValidation, JWT authentication
 
-## Yêu cầu trước
+## Prerequisites
 
-- .NET SDK 6.0 hoặc 7.0  
-- Một DB tương thích (SQL Server, PostgreSQL hoặc SQLite)  
-- (Tùy chọn) Docker & Docker Compose nếu repo hỗ trợ container
+- .NET SDK 6.0 or 7.0  
+- A compatible database (SQL Server, PostgreSQL, or SQLite)  
+- (Optional) Docker & Docker Compose if the repo includes container support
 
-## Cài đặt
+## Installation
 
-1. Clone repository:
+1. Clone the repository:
    git clone https://github.com/yasuoThongThao7/Traffic-Violation-Management-System.git
    cd Traffic-Violation-Management-System
 
-2. Restore và build:
+2. Restore packages and build:
    dotnet restore
    dotnet build --configuration Release
 
-(Nếu repo có nhiều project, chuyển vào thư mục project Web trước khi chạy.)
+(If the solution contains multiple projects, navigate to the web project folder before running the commands.)
 
-## Cấu hình
+## Configuration
 
-- Mở file `appsettings.json` hoặc `appsettings.Development.json` để cấu hình connection string, JWT và các thông số lưu file.
+- Edit `appsettings.json` or `appsettings.Development.json` to configure the connection string, JWT settings, file storage paths, and other environment variables.
 
-Ví dụ (SQL Server):
+Example connection string (SQL Server):
 ```json
 "ConnectionStrings": {
   "DefaultConnection": "Server=.;Database=TrafficViolationDB;Trusted_Connection=True;"
